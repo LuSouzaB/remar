@@ -3,6 +3,23 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
+<script>
+/* re.mar: se uma imagem de produto nao carregar de assets/, tenta os outros lugares
+   onde o arquivo pode ter sido enviado ao repositorio (sempre caminhos RELATIVOS, compativeis com /remar/). */
+(function () {
+  var pastas = ['assets/', '', 'images/', 'img/', 'Assets/', 'public/assets/', 'public/'];
+  document.addEventListener('error', function (e) {
+    var t = e.target;
+    if (!t || t.tagName !== 'IMG') return;
+    var m = (t.getAttribute('src') || '').match(/(prod-[a-z]+\.png)(?:\?.*)?$/i);
+    if (!m) return;
+    var i = (t.__remarTentativa || 0) + 1;
+    if (i >= pastas.length) return;
+    t.__remarTentativa = i;
+    t.src = pastas[i] + m[1];
+  }, true);
+})();
+</script>
 <script src="./config.js"></script>
 <script src="./site-config.js"></script>
 <script src="./support.js"></script>
@@ -49,7 +66,7 @@
         <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#BFE2EC">DEPOIS DO MÊS GRÁTIS, EU QUERO</span>
         <div style="display:flex;gap:8px">
           <button onClick="{{ setMensal }}" style="{{ chipMensalEscuro }}">Mensal · R$ 9,90</button>
-          <button onClick="{{ setAnual }}" style="{{ chipAnualEscuro }}">Anual · R$ 159</button>
+          <button onClick="{{ setAnual }}" style="{{ chipAnualEscuro }}">Anual · R$ 109,00</button>
         </div>
       </div>
     </div>
@@ -230,7 +247,7 @@
       <span style="font:600 15px Figtree;color:#BFE2EC">depois {{ precoDepois }}</span>
       <div style="display:flex;gap:8px">
         <button onClick="{{ setMensal }}" style="{{ chipMensalEscuro }}">Mensal · R$ 9,90</button>
-        <button onClick="{{ setAnual }}" style="{{ chipAnualEscuro }}">Anual · R$ 159</button>
+        <button onClick="{{ setAnual }}" style="{{ chipAnualEscuro }}">Anual · R$ 109,00</button>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font:400 15px Figtree;color:#BFE2EC;line-height:1.4">✓ Mais de uma coleta por semana</span>
@@ -380,7 +397,7 @@
     <span style="font:400 16px Figtree;color:#0B2E42;line-height:1.5">Sem cartão e sem pagamento agora. Você fala com a gente no WhatsApp e avisamos quando a rota abrir no seu bairro.</span>
     <div style="display:flex;gap:8px">
       <button onClick="{{ setMensal }}" style="{{ chipMensalClaro }}">Mensal · R$ 9,90</button>
-      <button onClick="{{ setAnual }}" style="{{ chipAnualClaro }}">Anual · R$ 159</button>
+      <button onClick="{{ setAnual }}" style="{{ chipAnualClaro }}">Anual · R$ 109,00</button>
     </div>
     <button onClick="{{ abrirFinal }}" style="background:#0B2E42;color:#F5F7F6;font:800 18px 'Bricolage Grotesque',system-ui;padding:20px;border-radius:16px;width:100%">QUERO TESTAR GRÁTIS</button>
   </div>
@@ -421,7 +438,7 @@
         <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#52636D">DEPOIS DO MÊS GRÁTIS, EU QUERO</span>
         <div style="display:flex;gap:8px">
           <button onClick="{{ setMensal }}" style="{{ chipMensalClaro }}">Mensal · R$ 9,90</button>
-          <button onClick="{{ setAnual }}" style="{{ chipAnualClaro }}">Anual · R$ 159</button>
+          <button onClick="{{ setAnual }}" style="{{ chipAnualClaro }}">Anual · R$ 109,00</button>
         </div>
       </div>
       <span style="font:400 14px Figtree;color:#52636D;line-height:1.45">1º mês grátis. Depois {{ precoDepois }}. Cancele quando quiser.</span>
@@ -553,7 +570,7 @@ class Component extends DCLogic {
   abrirWhatsapp() {
     const { whatsapp } = this.siteCfg();
     if (!whatsapp) return false;
-    const plano = this.state.ciclo === 'anual' ? 'Anual de R$ 159' : 'Mensal de R$ 9,90';
+    const plano = this.state.ciclo === 'anual' ? 'Anual de R$ 109,00' : 'Mensal de R$ 9,90';
     const texto = 'Olá! Quero testar a RE.MAR grátis por 1 mês. Tenho interesse no plano ' + plano + '. 💚♻️';
     const url = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(texto);
     const w = window.open(url, '_blank');
@@ -650,8 +667,8 @@ class Component extends DCLogic {
       mFree: String(leads.filter(l => l.tipo === 'gratuito').length),
       mCliquesFree: String(m.cliquesFree || 0),
       ciclo: this.state.ciclo,
-      precoDepois: ehMensal ? 'R$ 9,90/mês' : 'R$ 159/ano',
-      precoNota: ehMensal ? 'Depois R$ 9,90 por mês · cancele quando quiser' : 'Depois R$ 159 por ano · cancele quando quiser',
+      precoDepois: ehMensal ? 'R$ 9,90/mês' : 'R$ 109,00/ano',
+      precoNota: ehMensal ? 'Depois R$ 9,90 por mês · cancele quando quiser' : 'Depois R$ 109,00 por ano · cancele quando quiser',
       chipMensalEscuro: chip(ehMensal, false),
       chipAnualEscuro: chip(!ehMensal, false),
       chipMensalClaro: chip(ehMensal, true),

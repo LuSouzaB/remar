@@ -14,7 +14,7 @@ Landing mobile-first que capta interesse no plano Premium e na conta gratuita, g
 
 ## WhatsApp (botao QUERO TESTAR GRATIS)
 
-Os botoes Premium abrem direto o WhatsApp com mensagem pronta (Mensal R$ 9,90 ou Anual R$ 159, conforme o plano escolhido).
+Os botoes Premium abrem direto o WhatsApp com mensagem pronta (Mensal R$ 9,90 ou Anual R$ 109,00, conforme o plano escolhido).
 O numero fica em UM lugar so: `site-config.js` (campo `whatsappNumber`, so digitos: 55 + DDD + numero).
 Cada clique Premium tambem e registrado no Supabase (`eventos`, tipo `clique_premium`, origem `secao:plano`) e cada escolha em "Como voce quer separar hoje?" vira um evento `nivel_rapido | nivel_facil | nivel_medio | nivel_avancado`.
 A conta gratuita continua usando o formulario (nome + celular) e gravando em `leads`.
