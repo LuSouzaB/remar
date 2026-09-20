@@ -12,6 +12,13 @@ Landing mobile-first que capta interesse no plano Premium e na conta gratuita, g
 - `supabase/relatorio-diario.sql` — opcional: e-mail diario com o resumo
 - `.github/workflows/deploy-pages.yml` — publica no GitHub Pages a cada push
 
+## WhatsApp (botao QUERO TESTAR GRATIS)
+
+Os botoes Premium abrem direto o WhatsApp com mensagem pronta (Mensal R$ 9,90 ou Anual R$ 159, conforme o plano escolhido).
+O numero fica em UM lugar so: `site-config.js` (campo `whatsappNumber`, so digitos: 55 + DDD + numero).
+Cada clique Premium tambem e registrado no Supabase (`eventos`, tipo `clique_premium`, origem `secao:plano`) e cada escolha em "Como voce quer separar hoje?" vira um evento `nivel_rapido | nivel_facil | nivel_medio | nivel_avancado`.
+A conta gratuita continua usando o formulario (nome + celular) e gravando em `leads`.
+
 ## Caminho rapido: Formspree (so leads, sem SQL)
 
 1. Em formspree.io: **New Form**, de um nome (ex.: re.mar leads) e salve.
@@ -21,7 +28,7 @@ Landing mobile-first que capta interesse no plano Premium e na conta gratuita, g
 
 Cada lead chega por e-mail com nome, celular, tipo (premium/gratuito), ciclo e origem. Limites do plano gratuito (verifique em formspree.io/plans): cerca de 50 envios por mes e sem exportar CSV. O Formspree so recebe leads; visitas e cliques (conversao) continuam dependendo do Supabase.
 
-No GitHub Pages, cadastre `FORMSPREE_URL` em **Settings > Secrets and variables > Actions > Variables**.
+No GitHub Pages nao precisa cadastrar variaveis: o deploy usa o `config.js` como esta (so chaves publicas).
 
 ## 1. Criar o banco no Supabase (opcional se usar so Formspree)
 

@@ -4,6 +4,7 @@
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <script src="./config.js"></script>
+<script src="./site-config.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -35,18 +36,19 @@
   </div>
 
   <div style="background:#0B2E42;padding:26px 20px 0;display:flex;flex-direction:column;gap:18px">
-    <h1 style="margin:0;font:800 40px 'Bricolage Grotesque',system-ui;line-height:1.02;letter-spacing:-0.025em;color:#F5F7F6;text-wrap:pretty">Reciclar ficou mais fácil.</h1>
-    <p style="margin:0;font:400 17px Figtree;line-height:1.5;color:#BFE2EC;text-wrap:pretty">Agende a retirada dos seus recicláveis e transforme o hábito de reciclar em benefícios.</p>
+    <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#FFC63D">FAÇA PARTE DE ALGO MAIOR</span>
+    <h1 style="margin:0;font:800 34px 'Bricolage Grotesque',system-ui;line-height:1.05;letter-spacing:-0.025em;color:#F5F7F6;text-wrap:pretty"><span style="color:#FFC63D">Uma cidade melhor</span> começa com o que fazemos com aquilo que descartamos.</h1>
+    <p style="margin:0;font:400 17px Figtree;line-height:1.5;color:#BFE2EC;text-wrap:pretty">Ajude materiais a voltarem a circular, fortaleça quem vive da reciclagem e construa uma comunidade mais sustentável. Agendar a retirada dos seus recicláveis é só o começo.</p>
     <div style="background:#0A6B6D;border-radius:20px;padding:20px;display:flex;flex-direction:column;gap:14px">
       <div style="display:flex;flex-direction:column;gap:4px">
         <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#FFC63D">PREMIUM</span>
-        <span style="font:800 44px 'Bricolage Grotesque',system-ui;line-height:1;letter-spacing:-0.02em;color:#FFC63D">1º mês grátis</span>
+        <span style="font:800 30px 'Bricolage Grotesque',system-ui;line-height:1;letter-spacing:-0.02em;color:#FFC63D">1º mês grátis</span>
         <span style="font:400 15px Figtree;color:#BFE2EC;line-height:1.45">{{ precoNota }}</span>
       </div>
       <div style="display:flex;flex-direction:column;gap:6px">
         <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#BFE2EC">DEPOIS DO MÊS GRÁTIS, EU QUERO</span>
         <div style="display:flex;gap:8px">
-          <button onClick="{{ setMensal }}" style="{{ chipMensalEscuro }}">Mensal · R$ 15,90</button>
+          <button onClick="{{ setMensal }}" style="{{ chipMensalEscuro }}">Mensal · R$ 9,90</button>
           <button onClick="{{ setAnual }}" style="{{ chipAnualEscuro }}">Anual · R$ 159</button>
         </div>
       </div>
@@ -71,27 +73,117 @@
     </div>
   </div>
 
+  <div style="padding:36px 20px;display:flex;flex-direction:column;gap:20px">
+    <div style="display:flex;flex-direction:column;gap:8px">
+      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">PERTENCIMENTO</span>
+      <span style="font:800 30px 'Bricolage Grotesque',system-ui;line-height:1.08;letter-spacing:-0.02em;text-wrap:pretty">Você não separa sozinho.</span>
+      <span style="font:400 16px Figtree;color:#52636D;line-height:1.5">Cada pessoa que separa o que descarta se junta a uma rede que cuida da cidade. A re.mar existe para reunir essa gente e fazer cada gesto contar.</span>
+    </div>
+    <div style="display:flex;flex-direction:column;gap:0">
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <span style="display:flex;flex-direction:column;align-items:center;width:22px;flex:none"><span style="width:14px;height:14px;border-radius:999px;background:#FF5A1F"></span><span style="width:2px;flex:1;min-height:34px;background:#DCE4E6"></span></span>
+        <span style="display:flex;flex-direction:column;gap:3px;padding-bottom:16px"><span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#0A6B6D">IMPACTO COLETIVO</span><span style="font:700 17px 'Bricolage Grotesque',system-ui">Muitos gestos pequenos, um efeito grande</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Quando um bairro inteiro separa, muito mais material volta a circular em vez de ir parar no aterro.</span></span>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <span style="display:flex;flex-direction:column;align-items:center;width:22px;flex:none"><span style="width:14px;height:14px;border-radius:999px;background:#0A6B6D"></span><span style="width:2px;flex:1;min-height:34px;background:#DCE4E6"></span></span>
+        <span style="display:flex;flex-direction:column;gap:3px;padding-bottom:16px"><span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#0A6B6D">SUSTENTABILIDADE</span><span style="font:700 17px 'Bricolage Grotesque',system-ui">Economia circular na sua rua</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Papelão, vidro, plástico e óleo deixam de ser descarte e voltam a ser matéria-prima.</span></span>
+      </div>
+      <div style="display:flex;gap:14px;align-items:flex-start">
+        <span style="display:flex;flex-direction:column;align-items:center;width:22px;flex:none"><span style="width:14px;height:14px;border-radius:999px;background:#FFC63D"></span></span>
+        <span style="display:flex;flex-direction:column;gap:3px"><span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#0A6B6D">COMUNIDADE</span><span style="font:700 17px 'Bricolage Grotesque',system-ui">Quem trabalha com reciclagem, mais forte</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Catadores e cooperativas sustentam esse ciclo. Participar da re.mar é fortalecer quem vive dele.</span></span>
+      </div>
+    </div>
+    <div style="background:#0B2E42;border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:8px">
+      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#FFC63D">O QUE ESTAMOS CONSTRUINDO</span>
+      <span style="font:800 22px 'Bricolage Grotesque',system-ui;line-height:1.15;color:#F5F7F6;text-wrap:pretty">Um mundo e um futuro melhores se constroem em gestos de todo dia.</span>
+      <span style="font:400 15px Figtree;color:#BFE2EC;line-height:1.5">O seu começa na sua casa, no seu bairro, na nossa cidade.</span>
+    </div>
+  </div>
+
+  <div style="background:#EFE3CC;padding:34px 20px;display:flex;flex-direction:column;gap:16px">
+    <div style="display:flex;flex-direction:column;gap:6px">
+      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">FACILIDADE</span>
+      <span style="font:800 28px 'Bricolage Grotesque',system-ui;line-height:1.08;letter-spacing:-0.02em">Como você quer separar hoje?</span>
+      <span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Cada dia é um dia. Escolha o ritmo de hoje e a re.mar te orienta.</span>
+    </div>
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:10px">
+      <button onClick="{{ escolherRapido }}" style="{{ estiloRapido }}">
+        <span style="font:400 26px Figtree;line-height:1">⚡</span>
+        <span style="font:700 15px 'Bricolage Grotesque',system-ui;line-height:1.2;text-align:left">Hoje quero ser rápido</span>
+        <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#0B2E42;background:#FFC63D;padding:4px 8px;border-radius:999px">RÁPIDO</span>
+      </button>
+      <button onClick="{{ escolherFacil }}" style="{{ estiloFacil }}">
+        <span style="font:400 26px Figtree;line-height:1">♻️</span>
+        <span style="font:700 15px 'Bricolage Grotesque',system-ui;line-height:1.2;text-align:left">Quero separar certinho</span>
+        <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#0B2E42;background:#FFC63D;padding:4px 8px;border-radius:999px">FÁCIL</span>
+      </button>
+      <button onClick="{{ escolherMedio }}" style="{{ estiloMedio }}">
+        <span style="font:400 26px Figtree;line-height:1">🌱</span>
+        <span style="font:700 15px 'Bricolage Grotesque',system-ui;line-height:1.2;text-align:left">Quero aprender a separar melhor</span>
+        <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#0B2E42;background:#FFC63D;padding:4px 8px;border-radius:999px">MÉDIO</span>
+      </button>
+      <button onClick="{{ escolherAvancado }}" style="{{ estiloAvancado }}">
+        <span style="font:400 26px Figtree;line-height:1">🌎</span>
+        <span style="font:700 15px 'Bricolage Grotesque',system-ui;line-height:1.2;text-align:left">Quero aproveitamento 100%</span>
+        <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#0B2E42;background:#FFC63D;padding:4px 8px;border-radius:999px">AVANÇADO</span>
+      </button>
+    </div>
+    <sc-if value="{{ temNivel }}" hint-placeholder-val="{{ false }}">
+    <div style="background:#0B2E42;border-radius:20px;padding:18px;display:flex;flex-direction:column;gap:10px">
+      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#FFC63D">{{ nivelRotulo }}</span>
+      <span style="font:800 21px 'Bricolage Grotesque',system-ui;line-height:1.15;color:#F5F7F6;text-wrap:pretty">{{ nivelTitulo }}</span>
+      <span style="font:400 15px Figtree;color:#BFE2EC;line-height:1.5">{{ nivelTexto }}</span>
+      <button onClick="{{ abrirNivel }}" style="background:#FF5A1F;color:#0B2E42;font:800 16px 'Bricolage Grotesque',system-ui;padding:16px;border-radius:14px;width:100%;margin-top:4px">QUERO TESTAR GRÁTIS</button>
+    </div>
+    </sc-if>
+    <sc-if value="{{ semNivel }}" hint-placeholder-val="{{ true }}">
+    <span style="font:400 14px Figtree;color:#52636D;line-height:1.45">Toque em uma opção para ver como começar. Não existe jeito certo ou errado: existe o que cabe no seu dia.</span>
+    </sc-if>
+  </div>
+
   <div style="padding:34px 20px;display:flex;flex-direction:column;gap:16px">
-    <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">COMO FUNCIONA</span>
+    <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">COMO A RE.MAR AJUDA</span>
+    <span style="font:800 28px 'Bricolage Grotesque',system-ui;line-height:1.08;letter-spacing:-0.02em">Uma jornada simples, do começo ao benefício</span>
     <div style="display:flex;gap:14px;align-items:flex-start">
       <span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FF5A1F;width:34px;flex:none">01</span>
-      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Diga o que você separou</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Papelão, vidro, plástico, óleo. Leva menos de um minuto.</span></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Encontre quem coleta e mais combina com você</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Catadores e cooperativas da sua região, de acordo com a rota e o perfil que fazem sentido para você.</span><span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#F5F7F6;background:#0A6B6D;padding:3px 8px;border-radius:999px;align-self:flex-start;margin-top:3px">PILOTO NO WHATSAPP</span></span>
     </div>
     <div style="height:1px;background:#DCE4E6"></div>
     <div style="display:flex;gap:14px;align-items:flex-start">
       <span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FF5A1F;width:34px;flex:none">02</span>
-      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Escolha o dia da retirada</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">A re.mar encaixa você na rota do seu bairro.</span></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Agende o dia da retirada</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Escolha o melhor dia e a re.mar avisa quem vai coletar.</span><span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#F5F7F6;background:#0A6B6D;padding:3px 8px;border-radius:999px;align-self:flex-start;margin-top:3px">PILOTO NO WHATSAPP</span></span>
     </div>
     <div style="height:1px;background:#DCE4E6"></div>
     <div style="display:flex;gap:14px;align-items:flex-start">
       <span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FF5A1F;width:34px;flex:none">03</span>
-      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Ganhe pontos e benefícios</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Cada coleta vira EcoPontos e comprovante de destino.</span></span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Visualize a rota de coleta</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Veja quando a coleta passa pelo seu bairro.</span><span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#3C5361;background:#DCE4E6;padding:3px 8px;border-radius:999px;align-self:flex-start;margin-top:3px">EM BREVE</span></span>
     </div>
+    <div style="height:1px;background:#DCE4E6"></div>
+    <div style="display:flex;gap:14px;align-items:flex-start">
+      <span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FF5A1F;width:34px;flex:none">04</span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Saiba o que passa a ser aceito</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Aviso quando novos materiais começarem a ser reciclados ou deixarem de ser aceitos.</span><span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#3C5361;background:#DCE4E6;padding:3px 8px;border-radius:999px;align-self:flex-start;margin-top:3px">EM BREVE</span></span>
+    </div>
+    <div style="height:1px;background:#DCE4E6"></div>
+    <div style="display:flex;gap:14px;align-items:flex-start">
+      <span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FF5A1F;width:34px;flex:none">05</span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Visualize seus resultados</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Quilos reciclados e o caminho que o material percorreu.</span><span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#3C5361;background:#DCE4E6;padding:3px 8px;border-radius:999px;align-self:flex-start;margin-top:3px">EM BREVE</span></span>
+    </div>
+    <div style="height:1px;background:#DCE4E6"></div>
+    <div style="display:flex;gap:14px;align-items:flex-start">
+      <span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FF5A1F;width:34px;flex:none">06</span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Suba no ranking da comunidade</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Você, seu bairro e a cidade em movimento.</span><span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#3C5361;background:#DCE4E6;padding:3px 8px;border-radius:999px;align-self:flex-start;margin-top:3px">EM BREVE</span></span>
+    </div>
+    <div style="height:1px;background:#DCE4E6"></div>
+    <div style="display:flex;gap:14px;align-items:flex-start">
+      <span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FF5A1F;width:34px;flex:none">07</span>
+      <span style="display:flex;flex-direction:column;gap:3px"><span style="font:700 18px 'Bricolage Grotesque',system-ui">Ganhe pontos e benefícios</span><span style="font:400 15px Figtree;color:#52636D;line-height:1.45">EcoPontos e vantagens em parceiros locais.</span><span style="font:600 9px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#3C5361;background:#DCE4E6;padding:3px 8px;border-radius:999px;align-self:flex-start;margin-top:3px">EM BREVE</span></span>
+    </div>
+    <span style="font:400 13px Figtree;color:#52636D;line-height:1.5;background:#EFE3CC;border-radius:14px;padding:12px 14px">A re.mar está em fase de validação. Os recursos marcados como "em breve" ainda estão em construção e chegam conforme a comunidade cresce.</span>
   </div>
 
   <div style="background:#EFE3CC;padding:30px 0 34px;display:flex;flex-direction:column;gap:14px">
     <div style="padding:0 20px;display:flex;flex-direction:column;gap:4px">
-      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">NO APLICATIVO</span>
+      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">PRÉVIA DO APLICATIVO</span>
       <span style="font:800 26px 'Bricolage Grotesque',system-ui;line-height:1.1">Tudo em três toques</span>
     </div>
     <div class="remar-rail" style="display:flex;gap:14px;padding:4px 20px 6px">
@@ -137,8 +229,8 @@
       <span style="font:800 36px 'Bricolage Grotesque',system-ui;line-height:1;color:#FFC63D">1º mês grátis</span>
       <span style="font:600 15px Figtree;color:#BFE2EC">depois {{ precoDepois }}</span>
       <div style="display:flex;gap:8px">
-        <button onClick="{{ setMensal }}" style="{{ chipMensalEscuro }}">Mensal</button>
-        <button onClick="{{ setAnual }}" style="{{ chipAnualEscuro }}">Anual · 2 meses grátis</button>
+        <button onClick="{{ setMensal }}" style="{{ chipMensalEscuro }}">Mensal · R$ 9,90</button>
+        <button onClick="{{ setAnual }}" style="{{ chipAnualEscuro }}">Anual · R$ 159</button>
       </div>
       <div style="display:flex;flex-direction:column;gap:8px">
         <span style="font:400 15px Figtree;color:#BFE2EC;line-height:1.4">✓ Mais de uma coleta por semana</span>
@@ -150,7 +242,7 @@
         <span style="font:400 15px Figtree;color:#BFE2EC;line-height:1.4">✓ Benefícios no e-commerce re.mar</span>
         <span style="font:400 15px Figtree;color:#BFE2EC;line-height:1.4">✓ Descontos sem precisar acumular pontos</span>
       </div>
-      <button onClick="{{ abrirPlanos }}" style="background:#FF5A1F;color:#0B2E42;font:800 17px 'Bricolage Grotesque',system-ui;padding:18px;border-radius:14px;width:100%;margin-top:4px">TESTAR PREMIUM GRÁTIS</button>
+      <button onClick="{{ abrirPlanos }}" style="background:#FF5A1F;color:#0B2E42;font:800 17px 'Bricolage Grotesque',system-ui;padding:18px;border-radius:14px;width:100%;margin-top:4px">QUERO TESTAR GRÁTIS</button>
     </div>
   </div>
 
@@ -173,9 +265,9 @@
 
   <div style="padding:34px 20px;display:flex;flex-direction:column;gap:18px">
     <div style="display:flex;flex-direction:column;gap:6px">
-      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">QUEM COLETA, QUEM GERA</span>
+      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">QUEM COLETA, QUEM GERA · COMO VAI FUNCIONAR</span>
       <span style="font:800 28px 'Bricolage Grotesque',system-ui;line-height:1.08;letter-spacing:-0.02em;text-wrap:pretty">Do seu portão até quem vive disso</span>
-      <span style="font:400 16px Figtree;color:#52636D;line-height:1.5">A re.mar liga você aos catadores e cooperativas de Garopaba. Cada retirada é feita por uma pessoa da cidade, com nome, rota e destino registrados.</span>
+      <span style="font:400 16px Figtree;color:#52636D;line-height:1.5">A re.mar está construindo essa ligação entre você e os catadores e cooperativas de Garopaba. Cada retirada será feita por uma pessoa da cidade, com rota e destino registrados.</span>
     </div>
     <div style="display:flex;flex-direction:column;gap:0">
       <div style="display:flex;gap:14px;align-items:flex-start">
@@ -192,23 +284,24 @@
       </div>
     </div>
     <div style="background:#0B2E42;border-radius:22px;padding:20px;display:flex;flex-direction:column;gap:14px">
-      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#FFC63D">PARA ONDE FOI</span>
+      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#FFC63D">PARA ONDE FOI · EXEMPLO ILUSTRATIVO</span>
       <div style="background:rgba(245,247,246,.1);border-radius:16px;padding:16px;display:flex;flex-direction:column;gap:8px">
         <div style="display:flex;align-items:center;justify-content:space-between;gap:10px">
           <span style="font:700 16px Figtree;color:#F5F7F6">Papelão · 12 kg</span>
           <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.08em;color:#0B2E42;background:#FFC63D;padding:5px 9px;border-radius:999px">ENTREGUE</span>
         </div>
-        <span style="font:400 14px Figtree;color:#BFE2EC;line-height:1.45">Coletado por Jocimar · Cooperativa Recicla Garopaba · virou caixa em fábrica de Imbituba.</span>
+        <span style="font:400 14px Figtree;color:#BFE2EC;line-height:1.45">Coletado por um coletor da sua rota · triado em cooperativa parceira · virou caixa em uma fábrica da região.</span>
       </div>
       <div style="display:flex;gap:10px">
         <span style="flex:1;background:rgba(245,247,246,.1);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:2px"><span style="font:800 24px 'Bricolage Grotesque',system-ui;color:#F5F7F6">48 kg</span><span style="font:400 13px Figtree;color:#BFE2EC">seu mês</span></span>
-        <span style="flex:1;background:rgba(245,247,246,.1);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:2px"><span style="font:800 24px 'Bricolage Grotesque',system-ui;color:#F5F7F6">11</span><span style="font:400 13px Figtree;color:#BFE2EC">coletores na rede</span></span>
+        <span style="flex:1;background:rgba(245,247,246,.1);border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:2px"><span style="font:800 24px 'Bricolage Grotesque',system-ui;color:#F5F7F6">Rede</span><span style="font:400 13px Figtree;color:#BFE2EC">em formação com coletores locais</span></span>
       </div>
-      <span style="font:400 14px Figtree;color:#BFE2EC;line-height:1.5">Nada some no caminho: você acompanha peso, quem levou e onde o material entrou de novo na cadeia.</span>
+      <span style="font:400 14px Figtree;color:#BFE2EC;line-height:1.5">A ideia: nada some no caminho. Você acompanha peso, quem levou e onde o material voltou para a cadeia.</span>
     </div>
   </div>
 
   <div style="padding:0 20px 34px;display:flex;flex-direction:column;gap:14px">
+    <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">BENEFÍCIOS PARA VOCÊ · PONTOS EM BREVE</span>
     <span style="font:800 28px 'Bricolage Grotesque',system-ui;line-height:1.08;letter-spacing:-0.02em">Reciclar rende</span>
     <div style="display:grid;grid-template-columns:1fr 1fr;gap:12px">
       <div style="background:#FFC63D;border-radius:18px;padding:18px;display:flex;flex-direction:column;gap:6px;min-height:118px">
@@ -232,7 +325,7 @@
 
   <div style="background:#EFE3CC;padding:30px 0 34px;display:flex;flex-direction:column;gap:14px">
     <div style="padding:0 20px;display:flex;flex-direction:column;gap:4px">
-      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">DESAFIOS DA CIDADE</span>
+      <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.12em;color:#0A6B6D">DESAFIOS DA CIDADE · EXEMPLOS, EM BREVE</span>
       <span style="font:800 26px 'Bricolage Grotesque',system-ui;line-height:1.1"><br></span>
     </div>
     <div class="remar-rail" style="display:flex;gap:12px;padding:4px 20px 6px">
@@ -260,7 +353,7 @@
   <div style="padding:34px 0;display:flex;flex-direction:column;gap:14px">
     <div style="padding:0 20px;display:flex;flex-direction:column;gap:4px">
       <span style="font:800 26px 'Bricolage Grotesque',system-ui;line-height:1.1">Produtos re.mar</span>
-      <span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Assinantes têm desconto exclusivo no e-commerce.</span>
+      <span style="font:400 15px Figtree;color:#52636D;line-height:1.45">Em breve: assinantes terão desconto exclusivo no e-commerce.</span>
     </div>
     <div class="remar-rail" style="display:flex;gap:12px;padding:4px 20px 6px">
       <div style="flex:none;width:150px;scroll-snap-align:start;display:flex;flex-direction:column;gap:8px">
@@ -283,9 +376,13 @@
   </div>
 
   <div style="background:#FF5A1F;padding:36px 20px 40px;display:flex;flex-direction:column;gap:16px">
-    <span style="font:800 32px 'Bricolage Grotesque',system-ui;line-height:1.05;letter-spacing:-0.02em;color:#0B2E42;text-wrap:pretty">Experimente o Premium por um mês, por conta da casa.</span>
-    <span style="font:400 16px Figtree;color:#0B2E42;line-height:1.5">Sem cartão agora. Você registra o interesse e avisamos quando a rota abrir no seu bairro.</span>
-    <button onClick="{{ abrirFinal }}" style="background:#0B2E42;color:#F5F7F6;font:800 18px 'Bricolage Grotesque',system-ui;padding:20px;border-radius:16px;width:100%">QUERO EXPERIMENTAR</button>
+    <span style="font:800 32px 'Bricolage Grotesque',system-ui;line-height:1.05;letter-spacing:-0.02em;color:#0B2E42;text-wrap:pretty">Experimente a re.mar por um mês, por conta da casa.</span>
+    <span style="font:400 16px Figtree;color:#0B2E42;line-height:1.5">Sem cartão e sem pagamento agora. Você fala com a gente no WhatsApp e avisamos quando a rota abrir no seu bairro.</span>
+    <div style="display:flex;gap:8px">
+      <button onClick="{{ setMensal }}" style="{{ chipMensalClaro }}">Mensal · R$ 9,90</button>
+      <button onClick="{{ setAnual }}" style="{{ chipAnualClaro }}">Anual · R$ 159</button>
+    </div>
+    <button onClick="{{ abrirFinal }}" style="background:#0B2E42;color:#F5F7F6;font:800 18px 'Bricolage Grotesque',system-ui;padding:20px;border-radius:16px;width:100%">QUERO TESTAR GRÁTIS</button>
   </div>
 
   <div style="background:#0B2E42;padding:26px 20px 96px;display:flex;flex-direction:column;gap:10px">
@@ -293,7 +390,7 @@
       <svg width="20" height="20" viewBox="0 0 100 100"><circle cx="50" cy="50" r="36" fill="none" stroke="#F5F7F6" stroke-width="13" stroke-linecap="round" stroke-dasharray="177 226" transform="rotate(-29.5 50 50)"></circle><circle cx="62.9" cy="16.4" r="11" fill="#FF5A1F"></circle></svg>
       <span style="font:600 14px Figtree;color:#BFE2EC">re.mar · Garopaba, SC</span>
     </div>
-    <span style="font:400 13px Figtree;color:#BFE2EC;line-height:1.5">Piloto em validação. Ao registrar interesse você não é cobrado e não precisa criar conta.</span>
+    <span style="font:400 13px Figtree;color:#BFE2EC;line-height:1.5">Piloto em validação. Ao tocar em testar grátis você abre uma conversa no WhatsApp, sem cobrança e sem cadastro.</span>
     <button onClick="{{ togglePainel }}" style="font:600 13px Figtree;color:#9FBCCB;align-self:flex-start;padding:10px 0">Painel interno</button>
   </div>
 
@@ -301,7 +398,7 @@
   <div style="position:fixed;bottom:0;left:0;right:0;display:flex;justify-content:center;pointer-events:none;z-index:40">
     <div style="width:100%;max-width:480px;padding:10px 16px 16px;box-sizing:border-box;background:linear-gradient(to top, rgba(11,46,66,.96), rgba(11,46,66,.86));pointer-events:auto;display:flex;align-items:center;gap:12px">
       <span style="flex:1;display:flex;flex-direction:column"><span style="font:700 14px Figtree;color:#F5F7F6">1º mês grátis</span><span style="font:400 12px Figtree;color:#BFE2EC">depois {{ precoDepois }}</span></span>
-      <button onClick="{{ abrirBarra }}" style="background:#FF5A1F;color:#0B2E42;font:800 15px 'Bricolage Grotesque',system-ui;padding:15px 20px;border-radius:999px;flex:none">Testar Premium grátis</button>
+      <button onClick="{{ abrirBarra }}" style="background:#FF5A1F;color:#0B2E42;font:800 15px 'Bricolage Grotesque',system-ui;padding:15px 20px;border-radius:999px;flex:none">Quero testar grátis</button>
     </div>
   </div>
   </sc-if>
@@ -323,7 +420,7 @@
       <div style="display:flex;flex-direction:column;gap:7px">
         <span style="font:600 10px 'JetBrains Mono',monospace;letter-spacing:0.1em;color:#52636D">DEPOIS DO MÊS GRÁTIS, EU QUERO</span>
         <div style="display:flex;gap:8px">
-          <button onClick="{{ setMensal }}" style="{{ chipMensalClaro }}">Mensal · R$ 15,90</button>
+          <button onClick="{{ setMensal }}" style="{{ chipMensalClaro }}">Mensal · R$ 9,90</button>
           <button onClick="{{ setAnual }}" style="{{ chipAnualClaro }}">Anual · R$ 159</button>
         </div>
       </div>
@@ -360,7 +457,7 @@
         <div style="background:#FFFFFF;border-radius:14px;padding:14px;box-shadow:inset 0 0 0 1px #DCE4E6;display:flex;flex-direction:column;gap:2px"><span style="font:800 26px 'Bricolage Grotesque',system-ui">{{ mVisitas }}</span><span style="font:400 12px Figtree;color:#52636D">visitantes</span></div>
         <div style="background:#FFFFFF;border-radius:14px;padding:14px;box-shadow:inset 0 0 0 1px #DCE4E6;display:flex;flex-direction:column;gap:2px"><span style="font:800 26px 'Bricolage Grotesque',system-ui">{{ mCliques }}</span><span style="font:400 12px Figtree;color:#52636D">cliques no Premium</span></div>
         <div style="background:#FFFFFF;border-radius:14px;padding:14px;box-shadow:inset 0 0 0 1px #DCE4E6;display:flex;flex-direction:column;gap:2px"><span style="font:800 26px 'Bricolage Grotesque',system-ui">{{ mLeads }}</span><span style="font:400 12px Figtree;color:#52636D">e-mails únicos</span></div>
-        <div style="background:#0B2E42;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:2px"><span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FFC63D">{{ mConv }}</span><span style="font:400 12px Figtree;color:#BFE2EC">conversão</span></div>
+        <div style="background:#0B2E42;border-radius:14px;padding:14px;display:flex;flex-direction:column;gap:2px"><span style="font:800 26px 'Bricolage Grotesque',system-ui;color:#FFC63D">{{ mConv }}</span><span style="font:400 12px Figtree;color:#BFE2EC">cliques ÷ visitas</span></div>
       </div>
       <div style="display:flex;gap:10px">
         <div style="flex:1;background:#FFFFFF;border-radius:14px;padding:14px;box-shadow:inset 0 0 0 1px #DCE4E6;display:flex;flex-direction:column;gap:2px"><span style="font:800 22px 'Bricolage Grotesque',system-ui">{{ mMensal }}</span><span style="font:400 12px Figtree;color:#52636D">preferem mensal</span></div>
@@ -384,7 +481,7 @@
 </x-dc>
 <script type="text/x-dc" data-dc-script data-props="{&quot;$preview&quot;:{&quot;width&quot;:480,&quot;height&quot;:900},&quot;supabaseUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Supabase&quot;},&quot;supabaseAnonKey&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Supabase&quot;},&quot;formspreeUrl&quot;:{&quot;editor&quot;:&quot;text&quot;,&quot;default&quot;:&quot;&quot;,&quot;tsType&quot;:&quot;string&quot;,&quot;section&quot;:&quot;Formspree&quot;}}">
 class Component extends DCLogic {
-  state = { modalAberto: false, painelAberto: false, nome: '', celular: '', enviado: false, erro: '', barraVisivel: false, ciclo: 'mensal', tipo: 'premium', metrics: { visitas: 0, cliques: 0, leads: [] } };
+  state = { modalAberto: false, painelAberto: false, nome: '', celular: '', enviado: false, erro: '', barraVisivel: false, ciclo: 'mensal', tipo: 'premium', nivel: '', metrics: { visitas: 0, cliques: 0, leads: [] } };
 
   cfg() {
     const c = (typeof window !== 'undefined' && window.REMAR_CONFIG) || {};
@@ -448,6 +545,22 @@ class Component extends DCLogic {
   }
   componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
 
+  siteCfg() {
+    const c = (typeof window !== 'undefined' && window.REMAR_SITE) || {};
+    return { whatsapp: String(c.whatsappNumber || '').replace(/\D/g, '') };
+  }
+
+  abrirWhatsapp() {
+    const { whatsapp } = this.siteCfg();
+    if (!whatsapp) return false;
+    const plano = this.state.ciclo === 'anual' ? 'Anual de R$ 159' : 'Mensal de R$ 9,90';
+    const texto = 'Olá! Quero testar a RE.MAR grátis por 1 mês. Tenho interesse no plano ' + plano + '. 💚♻️';
+    const url = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(texto);
+    const w = window.open(url, '_blank');
+    if (w) { try { w.opener = null; } catch (e) {} } else { window.location.href = url; }
+    return true;
+  }
+
   abrir(origem, tipo) {
     const m = this.state.metrics;
     const premium = tipo !== 'gratuito';
@@ -456,7 +569,8 @@ class Component extends DCLogic {
       cliquesFree: (m.cliquesFree || 0) + (premium ? 0 : 1),
       ultimoCta: origem
     }));
-    this.enviarSupabase('eventos', { tipo: premium ? 'clique_premium' : 'clique_gratuito', origem: origem });
+    this.enviarSupabase('eventos', { tipo: premium ? 'clique_premium' : 'clique_gratuito', origem: premium ? origem + ':' + this.state.ciclo : origem });
+    if (premium && this.abrirWhatsapp()) return;
     this.setState({ modalAberto: true, enviado: false, erro: '', barraVisivel: false, tipo: premium ? 'premium' : 'gratuito' });
   }
 
@@ -492,8 +606,21 @@ class Component extends DCLogic {
     const m = this.state.metrics || { visitas: 0, cliques: 0, leads: [] };
     const leads = m.leads || [];
     const visitas = m.visitas || 0;
-    const conv = visitas ? Math.round((leads.length / visitas) * 100) : 0;
+    const conv = visitas ? Math.round(((m.cliques || 0) / visitas) * 100) : 0;
     const ehMensal = this.state.ciclo === 'mensal';
+    const niveis = {
+      rapido: { rotulo: '⚡ RÁPIDO', titulo: 'Hoje é dia de simplificar.', texto: 'Recicláveis secos de um lado, o resto do outro. Já é um grande passo, e leva menos de um minuto. A re.mar te orienta no restante.' },
+      facil: { rotulo: '♻️ FÁCIL', titulo: 'Cada material no seu lugar.', texto: 'Papel, plástico, vidro e metal em recipientes separados. Um enxágue rápido nas embalagens e pronto.' },
+      medio: { rotulo: '🌱 MÉDIO', titulo: 'Vamos aprender juntos.', texto: 'A re.mar vai te mostrar, passo a passo, o que vai para onde e como preparar cada material. Sem pressa e sem cobrança.' },
+      avancado: { rotulo: '🌎 AVANÇADO', titulo: 'Aproveitamento máximo.', texto: 'Cada material separado por tipo, embalagens limpas, óleo de cozinha à parte e orgânicos com outro destino. Quanto mais cuidado, mais material volta a circular.' }
+    };
+    const nv = niveis[this.state.nivel];
+    const nivelBtn = (id) => 'display:flex;flex-direction:column;align-items:flex-start;gap:8px;padding:14px;border-radius:18px;text-align:left;' +
+      (this.state.nivel === id ? 'background:#0B2E42;color:#F5F7F6;box-shadow:0 10px 24px rgba(11,46,66,.25)' : 'background:#FFFFFF;color:#0B2E42;box-shadow:inset 0 0 0 1px #DCE4E6');
+    const escolher = (id) => () => {
+      this.setState({ nivel: id });
+      this.enviarSupabase('eventos', { tipo: 'nivel_' + id, origem: 'separar_hoje' });
+    };
     const chip = (ativo, claro) => 'font:700 14px Figtree;padding:12px 16px;border-radius:999px;flex:1;text-align:center;color:' +
       (ativo ? '#0B2E42;background:#FFC63D' : (claro ? '#3C5361;background:#FFFFFF;box-shadow:inset 0 0 0 1px #DCE4E6' : '#F5F7F6;background:rgba(245,247,246,.22)'));
     return {
@@ -523,12 +650,20 @@ class Component extends DCLogic {
       mFree: String(leads.filter(l => l.tipo === 'gratuito').length),
       mCliquesFree: String(m.cliquesFree || 0),
       ciclo: this.state.ciclo,
-      precoDepois: ehMensal ? 'R$ 15,90/mês' : 'R$ 159/ano',
-      precoNota: ehMensal ? 'Depois R$ 15,90 por mês · cancele quando quiser' : 'Depois R$ 159 por ano · equivale a R$ 13,25/mês',
+      precoDepois: ehMensal ? 'R$ 9,90/mês' : 'R$ 159/ano',
+      precoNota: ehMensal ? 'Depois R$ 9,90 por mês · cancele quando quiser' : 'Depois R$ 159 por ano · cancele quando quiser',
       chipMensalEscuro: chip(ehMensal, false),
       chipAnualEscuro: chip(!ehMensal, false),
       chipMensalClaro: chip(ehMensal, true),
       chipAnualClaro: chip(!ehMensal, true),
+      temNivel: !!nv,
+      semNivel: !nv,
+      nivelRotulo: nv ? nv.rotulo : '',
+      nivelTitulo: nv ? nv.titulo : '',
+      nivelTexto: nv ? nv.texto : '',
+      estiloRapido: nivelBtn('rapido'), estiloFacil: nivelBtn('facil'), estiloMedio: nivelBtn('medio'), estiloAvancado: nivelBtn('avancado'),
+      escolherRapido: escolher('rapido'), escolherFacil: escolher('facil'), escolherMedio: escolher('medio'), escolherAvancado: escolher('avancado'),
+      abrirNivel: () => this.abrir('separar_' + (this.state.nivel || 'hoje'), 'premium'),
       setMensal: () => this.setState({ ciclo: 'mensal' }),
       setAnual: () => this.setState({ ciclo: 'anual' }),
       abrirTopo: () => this.abrir('hero', 'premium'),
