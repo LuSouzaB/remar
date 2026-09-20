@@ -22,6 +22,7 @@
 </script>
 <script src="./config.js"></script>
 <script src="./site-config.js"></script>
+<script src="./analytics.js"></script>
 <script src="./support.js"></script>
 </head>
 <body>
@@ -510,7 +511,7 @@ class Component extends DCLogic {
     if (!url || !key) return Promise.resolve(false);
     return fetch(url.replace(/\/$/, '') + '/rest/v1/' + tabela, {
       method: 'POST',
-      headers: { 'Content-Type': 'application/json', apikey: key, Authorization: 'Bearer ' + key, Prefer: 'return=minimal,resolution=ignore-duplicates' },
+      headers: { 'Content-Type': 'application/json', apikey: key, Authorization: 'Bearer ' + key, Prefer: 'return=minimal' },
       body: JSON.stringify(payload)
     }).then(r => r.ok).catch(() => false);
   }
@@ -548,7 +549,6 @@ class Component extends DCLogic {
       if (!sessionStorage.getItem('remar_lp_visitou')) {
         sessionStorage.setItem('remar_lp_visitou', '1');
         nova = Object.assign({}, m, { visitas: (m.visitas || 0) + 1 });
-        this.enviarSupabase('eventos', { tipo: 'visita', origem: (document.referrer || '').slice(0, 200) || 'direto' });
       }
     } catch (e) {}
     this.gravar(nova);
@@ -562,12 +562,16 @@ class Component extends DCLogic {
   }
   componentWillUnmount() { window.removeEventListener('scroll', this.onScroll); }
 
+  rastrear(tipo, origem) {
+    try { if (typeof window.remarTrack === 'function') window.remarTrack(tipo, origem); } catch (e) {}
+  }
+
   siteCfg() {
     const c = (typeof window !== 'undefined' && window.REMAR_SITE) || {};
     return { whatsapp: String(c.whatsappNumber || '').replace(/\D/g, '') };
   }
 
-  abrirWhatsapp() {
+  abrirWhatsapp(origem) {
     const { whatsapp } = this.siteCfg();
     if (!whatsapp) return false;
     const plano = this.state.ciclo === 'anual' ? 'Anual de R$ 109,00' : 'Mensal de R$ 9,90';
@@ -575,6 +579,7 @@ class Component extends DCLogic {
     const url = 'https://wa.me/' + whatsapp + '?text=' + encodeURIComponent(texto);
     const w = window.open(url, '_blank');
     if (w) { try { w.opener = null; } catch (e) {} } else { window.location.href = url; }
+    this.rastrear('whatsapp_opened', (origem || 'desconhecido') + ':' + this.state.ciclo);
     return true;
   }
 
@@ -586,8 +591,8 @@ class Component extends DCLogic {
       cliquesFree: (m.cliquesFree || 0) + (premium ? 0 : 1),
       ultimoCta: origem
     }));
-    this.enviarSupabase('eventos', { tipo: premium ? 'clique_premium' : 'clique_gratuito', origem: premium ? origem + ':' + this.state.ciclo : origem });
-    if (premium && this.abrirWhatsapp()) return;
+    this.rastrear(premium ? 'trial_cta_clicked' : 'clique_gratuito', premium ? origem + ':' + this.state.ciclo : origem);
+    if (premium && this.abrirWhatsapp(origem)) return;
     this.setState({ modalAberto: true, enviado: false, erro: '', barraVisivel: false, tipo: premium ? 'premium' : 'gratuito' });
   }
 
@@ -636,7 +641,7 @@ class Component extends DCLogic {
       (this.state.nivel === id ? 'background:#0B2E42;color:#F5F7F6;box-shadow:0 10px 24px rgba(11,46,66,.25)' : 'background:#FFFFFF;color:#0B2E42;box-shadow:inset 0 0 0 1px #DCE4E6');
     const escolher = (id) => () => {
       this.setState({ nivel: id });
-      this.enviarSupabase('eventos', { tipo: 'nivel_' + id, origem: 'separar_hoje' });
+      this.rastrear('nivel_' + id, 'separar_hoje');
     };
     const chip = (ativo, claro) => 'font:700 14px Figtree;padding:12px 16px;border-radius:999px;flex:1;text-align:center;color:' +
       (ativo ? '#0B2E42;background:#FFC63D' : (claro ? '#3C5361;background:#FFFFFF;box-shadow:inset 0 0 0 1px #DCE4E6' : '#F5F7F6;background:rgba(245,247,246,.22)'));
@@ -681,8 +686,8 @@ class Component extends DCLogic {
       estiloRapido: nivelBtn('rapido'), estiloFacil: nivelBtn('facil'), estiloMedio: nivelBtn('medio'), estiloAvancado: nivelBtn('avancado'),
       escolherRapido: escolher('rapido'), escolherFacil: escolher('facil'), escolherMedio: escolher('medio'), escolherAvancado: escolher('avancado'),
       abrirNivel: () => this.abrir('separar_' + (this.state.nivel || 'hoje'), 'premium'),
-      setMensal: () => this.setState({ ciclo: 'mensal' }),
-      setAnual: () => this.setState({ ciclo: 'anual' }),
+      setMensal: () => { this.setState({ ciclo: 'mensal' }); this.rastrear('plan_selected', 'mensal'); },
+      setAnual: () => { this.setState({ ciclo: 'anual' }); this.rastrear('plan_selected', 'anual'); },
       abrirTopo: () => this.abrir('hero', 'premium'),
       abrirPlanos: () => this.abrir('planos', 'premium'),
       abrirFinal: () => this.abrir('cta_final', 'premium'),

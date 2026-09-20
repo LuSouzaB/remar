@@ -16,7 +16,9 @@ Landing mobile-first que capta interesse no plano Premium e na conta gratuita, g
 
 Os botoes Premium abrem direto o WhatsApp com mensagem pronta (Mensal R$ 9,90 ou Anual R$ 109,00, conforme o plano escolhido).
 O numero fica em UM lugar so: `site-config.js` (campo `whatsappNumber`, so digitos: 55 + DDD + numero).
-Cada clique Premium tambem e registrado no Supabase (`eventos`, tipo `clique_premium`, origem `secao:plano`) e cada escolha em "Como voce quer separar hoje?" vira um evento `nivel_rapido | nivel_facil | nivel_medio | nivel_avancado`.
+Analytics: todo o codigo esta em `analytics.js` (carregado pelo `index.html`). Grava na tabela `eventos` do Supabase: `page_view`, `plan_selected` (origem mensal|anual), `trial_cta_clicked` e `whatsapp_opened` (origem `secao:plano`, ex. `hero:anual`), alem de `clique_gratuito` e `nivel_rapido | nivel_facil | nivel_medio | nivel_avancado`.
+O registro e "dispare e esqueca": se falhar, o site e o WhatsApp continuam funcionando (erros aparecem so no console do navegador, com o prefixo `[re.mar analytics]`).
+Importante: as requisicoes ao Supabase NAO usam `Prefer: resolution=ignore-duplicates`, porque isso vira "upsert" e o RLS do papel anon bloqueia (erro 42501 / HTTP 401).
 A conta gratuita continua usando o formulario (nome + celular) e gravando em `leads`.
 
 ## Caminho rapido: Formspree (so leads, sem SQL)
